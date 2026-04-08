@@ -47,7 +47,7 @@
 - 
 
 ### 2.3 Quick Reference (for tools/skills) / 分类速览（工具/技能类） [Optional]
-<!-- ZH: 若为工具/技能类内容，补充此表。Skill名称必须可点击：[Skill名称](下载链接) | EN: For tools/skills content. Skill names must be clickable: [Skill Name](download URL) -->
+<!-- ZH: 若为工具/技能类内容，补充此表。工具名称必须可点击：[名称](下载链接) | EN: For tools/skills content. Skill names must be clickable: [tool Name](download URL) -->
 
 | Category / 分类 | Item / 代表项 | Purpose / 作用 |
 |----------------|--------------|---------------|

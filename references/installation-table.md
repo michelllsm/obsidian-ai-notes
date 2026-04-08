@@ -23,6 +23,8 @@
 | youtube-full         | Recommended / 推荐安装 | YouTube full workflow / YouTube 全链路能力  | https://transcriptapi.com                    |
 | video-summary        | Recommended / 推荐安装 | Multi-platform video summary / 多平台视频摘要 | https://github.com/yt-dlp/yt-dlp             |
 | xiaohongshu          | Recommended / 推荐安装 | Xiaohongshu content workflow / 小红书内容链路 | https://github.com/xpzouying/xiaohongshu-mcp |
+| agent-browser        | Recommended / 推荐安装 | Browser automation / 浏览器自动化（测试、截图、数据提取） | https://github.com/anthropics/anthropic-cookbook |
+| agent-reach          | Recommended / 推荐安装 | Internet access for AI / AI互联网访问（16+平台聚合） | https://github.com/xxx/agent-reach |
 
 ---
 
