@@ -1,7 +1,69 @@
+---
+name: obsidian-ai-notes
+description: |
+  This skill enables AI agents to create, organize, and manage structured Obsidian notes 
+  through natural language commands like -day, -note, -week. Designed for Chinese users 
+  with English compatibility. Supports bilingual output, template-driven note generation, 
+  and progressive automation.
+  
+  Use when: User wants to take notes in Obsidian via AI, create daily/weekly logs, 
+  track tasks, or build a structured knowledge base with AI assistance.
+version: 1.0.0
+author: smingliang
+---
+
 # SKILL: obsidian-ai-notes
 
 > AI 执行规范：Obsidian 笔记工作流 Skill（中文为主，英文兼容）
 > 版本：1.0.0 | 更新：2026-04-07
+
+---
+
+## 0. When to Use This Skill / 触发条件
+
+### Trigger Phrases / 触发词
+- **Core commands / 核心指令**: `-day`, `-note`, `-week`, `-task`, `-tool`, `-output`, `-input`, `-update`
+- **Chinese aliases / 中文别名**: `-每日笔记`, `-主题`, `-每周笔记`, `-待办`, `-跟踪`, `-工具`, `-创作`, `-输出`, `-灵感`, `-输入`, `-迭代`
+- **Natural language / 自然语言**: "帮我记笔记", "创建每日记录", "写周复盘", "记录灵感", "跟踪任务"
+- **Setup / 开箱**: "-setup", "配置笔记工作流", "初始化 obsidian"
+
+### Do NOT Trigger / 不触发场景
+- 单纯询问 Obsidian 软件使用问题（非 AI 笔记工作流）
+- 要求导出/导入笔记文件（属于文件操作，非结构化笔记创建）
+- 询问 Markdown 语法（属于格式问题，非工作流）
+
+---
+
+## 0.5 环境检测规范 / Environment Detection
+
+**核心原则：让 AI "住在" Vault 里，而非"远程遥控"**
+
+### 检测顺序（优先级）
+
+```
+1. 当前工作空间是否包含 .obsidian/ 文件夹？
+   └─ 是 → 将当前工作空间视为 Vault，直接开工
+   
+2. 环境变量 OBSIDIAN_VAULT_PATH 是否设置？
+   └─ 是 → 使用该路径作为 Vault
+   
+3. 询问用户 Vault 位置
+   └─ 记录到工作空间配置，后续复用
+```
+
+### 推荐路径
+
+| 方式 | 命令 | 效果 |
+|-----|------|------|
+| **推荐** | `cd ~/Vault && workbuddy .` | AI 与 Vault 形成"内居"关系 |
+| 次选 | 设置 `OBSIDIAN_VAULT_PATH` | 显式桥接，配置负担 |
+| 避免 | 工作空间 ≠ Vault | 路径不一致，操作失败 |
+
+### 不一致处理
+
+如果检测到工作空间 ≠ Vault：
+- 显式告知用户当前配置
+- 提供选项：切换工作空间 / 配置 Vault 路径 / 继续（不推荐）
 
 ---
 
