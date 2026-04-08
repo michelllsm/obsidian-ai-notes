@@ -41,15 +41,25 @@ author: smingliang
 ### 检测顺序（优先级）
 
 ```
-1. 当前工作空间是否包含 .obsidian/ 文件夹？
-   └─ 是 → 将当前工作空间视为 Vault，直接开工
+1. 用户级 MEMORY.md 是否配置主 Vault 路径？
+   └─ 是 → 使用该路径（支持跨工作空间执行）
    
-2. 环境变量 OBSIDIAN_VAULT_PATH 是否设置？
-   └─ 是 → 使用该路径作为 Vault
+2. 当前工作空间是否包含 .obsidian/ 文件夹？
+   └─ 是 → 将当前工作空间视为 Vault
    
-3. 询问用户 Vault 位置
-   └─ 记录到工作空间配置，后续复用
+3. 环境变量 OBSIDIAN_VAULT_PATH 是否设置？
+   └─ 是 → 使用该路径
+   
+4. 询问用户 Vault 位置
+   └─ 记录到用户级 MEMORY.md，全局复用
 ```
+
+### 跨工作空间执行
+
+当用户在其他工作空间使用笔记指令时：
+- AI 读取 `~/.workbuddy/memory/MEMORY.md` 获取主 Vault 路径
+- 显式告知用户：「当前工作空间不是 Vault，将操作主 Vault：/path/to/vault」
+- 执行指令后，笔记写入主 Vault 的对应文件夹
 
 ### 推荐路径
 
