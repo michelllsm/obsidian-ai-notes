@@ -1,16 +1,18 @@
 ---
 created: {{date:YYYY-MM-DD HH:mm}}
 modified: {{date:YYYY-MM-DD HH:mm}}
-type: topic-experience
+type: note-experience
 title: "{{title}}"
 source: "{{platform}}"
 author: "{{author}}"
 tags: [主题, 经验沉淀, {{tag}}]
 ---
 
+
+
 # {{title}}
 
-> Command: `-note` | 指令：`-主题`
+> Command: `-exp` | 指令：`-经验`
 
 ---
 

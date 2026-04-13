@@ -30,8 +30,8 @@ day
 
 | Command | Natural Commands | When to use | Prompt Example | Output |
 |---------|-----------------|-------------|----------------|--------|
-| `-note` | `note`, `主题`, `收录` | External content summary (article/video/podcast). Auto-sorted when multiple same-topic | `-note https://...` · `-note 关于 Karpathy LLM Wiki` | `📚Topics/note-overview/<sub>/` |
-| `-exp` | `exp`, `经验`, `沉淀` | Personal experience summary (practice review/method). Auto-sorted when multiple same-topic | `-exp 完成xxx项目复盘` · `-exp 搭建AI工作流经验` | `📚Topics/note-experience/<sub>/` |
+| `-note` | `note`, `主题`, `收录` | External content summary (article/video/podcast). Auto-sorted by topic | `-note https://...` · `-note 关于 Karpathy LLM Wiki` | `📚Topics/<topic>/` |
+| `-exp` | `exp`, `经验`, `沉淀` | Personal experience summary (practice review/method). Auto-sorted by topic | `-exp 完成xxx项目复盘` · `-exp 搭建AI工作流经验` | `📚Topics/<topic>/` |
 | `-idea` | `idea`, `灵感`, `素材` | Mark content from others as creative material — potential source for your future output | `-idea 这篇文章的观点可以写成小红书` · `-idea 对标账号的选题角度不错` | `📚Topics/创作灵感/` |
 | `-tool` | `tool`, `工具` | Document a new tool/Skill/technique. Auto-updates index files | `-tool Cursor 编辑器` · `-tool 小红书 Skill` | `🛠️Tools/` |
 
@@ -60,27 +60,21 @@ day
 ```
 <vault>/                            对应指令：
 ├── 📅每日笔记/                    # day
-├── 📚主题笔记/                    
-│   ├── note-overview摘要/         # note 外部内容摘要（多篇同主题时建子分类）
-│   │   ├── AI工具/               # 同主题≥3篇时自动创建
-│   │   ├── 健康/
-│   │   └── ...
-│   ├── note-experience经验/       # exp 个人经验沉淀（多篇同主题时建子分类）
-│   │   ├── AI工具/
-│   │   └── ...
-│   └── 创作灵感/                  # idea 固定落点
+├── 📚主题笔记/                    # -note / -exp（子目录按主题自动创建）
+│   ├── index.md                   # 主题笔记根目录索引（自动生成）
+│   └── 创作灵感/                  # -idea 固定落点
 ├── 📆每周笔记/                    # week
 ├── 📋待跟踪任务/                  # todo
 ├── 📝创作输出/                    # output（自动创建子分类）
 ├── 🛠️tools/                      # tool
 │   ├── 💪skill技能收录.md          # tool 自动写入
 │   └── 🔧tools-index.md          # tool 自动写入
-├── Clippings/                   # 收件箱（classify 扫描此处）
-└── obsidian-ai-notes skill配置/
+├── Clippings/                     # 收件箱（classify 扫描此处）
+└── "obsidian-ai-notes skill配置"/ # ⚠️ 含空格，是一个完整目录名
     ├── SKILL.md                   # 核心执行规范
     ├── templates/                 # 笔记模板（可以自己改）
-    │   ├── topic-overview.md      # note 模板（外部内容摘要）
-    │   ├── topic-experience.md    # exp 模板（个人经验沉淀）
+    │   ├── note-overview.md        # note 模板（外部内容摘要）
+    │   ├── note-experience.md     # exp 模板（个人经验沉淀）
     │   ├── todo任务.md            # todo 模板
     │   └── ...
     ├── references/                # 详细指令文档、开箱、拓展工具包（AI看的）
@@ -97,9 +91,9 @@ day
 
 ## 🌍 Language Support
 
-| Language | Folder Example | Output |
-|----------|---------------|--------|
-| 🇨🇳 中文 | `📅每日笔记/`, `📚主题笔记/` | 纯中文 |
+| Language     | Folder Example          | Output       |
+| ------------ | ----------------------- | ------------ |
+| 🇨🇳 中文      | `📅每日笔记/`, `📚主题笔记/`    | 纯中文          |
 | 🇺🇸 English | `📅Daily/`, `📚Topics/` | Pure English |
 
 ---
@@ -136,7 +130,7 @@ After setup, install these to supercharge your workflow:
 | [find-skills](https://skills.sh/) | Discover new Skills from the marketplace | Recommended | None |
 | [self-improving-agent](https://skills.sh/) | Auto-record errors and improve over time | Recommended | None |
 
-> **Why so few?** Most platforms (YouTube, Bilibili, WeChat Articles, X, etc.) work great with built-in web fetching — no extra Skill needed. Only platforms requiring search/interaction data (like Xiaohongshu) need dedicated Skills. See `references/拓展工具包.md`（已重命名为"拓展工具包"）for the full routing table.
+> **Why so few?** Most platforms (YouTube, Bilibili, WeChat Articles, X, etc.) work great with built-in web fetching — no extra Skill needed. Only platforms requiring search/interaction data (like Xiaohongshu) need dedicated Skills. See `references/Extended Toolkit拓展工具包.md` for the full routing table.
 
 ---
 
@@ -163,6 +157,6 @@ This Skill is designed to work with any AI assistant that supports Skills/system
 
 ---
 
-> **Note:** This Skill is designed as general rules. Feel free to modify to fit your workflow. See [SKILL.md](SKILL.md) for the AI execution spec, and [references/command-reference.md](references/command-reference.md) for detailed command reference.
+> **Note:** This Skill is designed as general rules. Feel free to modify to fit your workflow. See [SKILL.md](obsidian-ai-notes%20skill配置/SKILL.md) for the AI execution spec, and [references/command-reference.md](references/command-reference.md) for detailed command reference.
 
 **中文版:** [README_CN.md](README_CN.md)

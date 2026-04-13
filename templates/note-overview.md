@@ -1,13 +1,15 @@
 ---
 created: {{date:YYYY-MM-DD HH:mm}}
 modified: {{date:YYYY-MM-DD HH:mm}}
-type: topic-overview
+type: note-overview
 title: "{{title}}"
 source: "{{url}}"
 platform: "{{platform}}"
 author: "{{author}}"
 publish_date: "{{publish_date}}"
-tags: [主题, 外部摘要, {{tag}}]
+tags:
+  - 主题
+  - 外部摘要
 ---
 
 # {{title}}

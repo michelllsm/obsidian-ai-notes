@@ -104,34 +104,60 @@ B: 未安装，请帮我下载
 ## Phase 3: 骨架初始化 + Skill 文件植入
 
 ### Step 1: 创建笔记骨架
+
 根据选择的语言创建对应文件夹名（中文/英文）。
 
+> ⚠️ **关键**：`obsidian-ai-notes skill配置` 是一个**含空格的完整目录名**，
+> 创建时必须用引号包裹，**不可拆分为两个目录**。
+
+**创建命令示例（中文）**：
+```bash
+VAULT="<用户确认的 Vault 路径>"
+mkdir -p "$VAULT/📅每日笔记"
+mkdir -p "$VAULT/📚主题笔记"
+mkdir -p "$VAULT/📆每周笔记"
+mkdir -p "$VAULT/📋待跟踪任务"
+mkdir -p "$VAULT/📝创作输出"
+mkdir -p "$VAULT/🛠️tools"
+mkdir -p "$VAULT/Clippings"
+mkdir -p "$VAULT/obsidian-ai-notes skill配置/templates"
+mkdir -p "$VAULT/obsidian-ai-notes skill配置/references"
+```
+
+> 📚主题笔记/ 的子目录（如 🤖AI工具/、📝内容创作/）**不在开箱时创建**，
+> 由用户使用 `-note` / `-exp` 时按内容主题自动生成。
+
 ### Step 2: 植入 Skill 文件到笔记库
-将官方 Skill 文件复制到 `<vault>/obsidian-ai-notes skill配置/`。
+
+将当前 Skill 的核心文件复制到 `"<vault>/obsidian-ai-notes skill配置/"`（注意引号）：
+
+需复制的文件清单：
+- `SKILL.md` → `"<vault>/obsidian-ai-notes skill配置/SKILL.md"`
+- `README.md` → `"<vault>/obsidian-ai-notes skill配置/README.md"`
+- `templates/*` → `"<vault>/obsidian-ai-notes skill配置/templates/"`
+- `references/*` → `"<vault>/obsidian-ai-notes skill配置/references/"`
+
+> 如果是接入已有库（Phase 2 B 路径），且库中已有该目录，跳过覆盖并提示用户。
 
 ### Step 3: 展示完整骨架结构
 
 ```text
 📦 你的笔记库骨架已搭建完成！
-📦 Skill 文件已植入笔记库！位置：<vault>/obsidian-ai-notes skill配置/
+📦 Skill 文件已植入笔记库！位置："<vault>/obsidian-ai-notes skill配置/"
 
 <vault>/
-├── 📅每日笔记/                    # day
-├── 📚主题笔记/                    # note（自动创建子分类）
-│   ├── AI工具/                    # 按主题自动归类
-│   ├── 创作灵感/                  # idea 固定落点
-│   └── .../                       # 动态扩展
-├── 📆每周笔记/                    # week
-├── 📋待跟踪任务/                  # task
-├── 📝创作输出/                    # output（自动创建子分类）
-├── 🛠️tools/                      # tool
-├── 💡笔记工作流优化idea/           # update
-├── Clippings/                   # 收件箱（classify 扫描）
-└── obsidian-ai-notes skill配置/
-    ├── SKILL.md
-    ├── README.md
-    ├── templates/
-    └── references/
+├── 📅每日笔记/                    # -day
+├── 📚主题笔记/                    # -note / -exp（子目录按主题自动创建）
+├── 📆每周笔记/                    # -week
+├── 📋待跟踪任务/                  # -task
+├── 📝创作输出/                    # -output
+├── 🛠️tools/                      # -tool
+├── Clippings/                     # 收件箱（-classify 扫描）
+└── "obsidian-ai-notes skill配置"/ # ⚠️ 含空格，是一个完整目录名
+    ├── SKILL.md                   # 核心执行规范（可自定义）
+    ├── README.md                  # 用户说明
+    ├── templates/                 # 笔记模板（可直接修改）
+    └── references/                # 参考文档
 
 你可以：
 ✅ 用指令快速创建、修改、整理文档，无需手动归类
@@ -184,7 +210,7 @@ B: 跳过，仅当前工作空间可用
 
 ## Phase 5: 扩展 Skill 推荐
 
-推荐安装列表见 `references/recommended-skills.md`（如存在），或使用以下默认列表：
+推荐安装列表见 `references/Extended Toolkit拓展工具包.md`，或使用以下默认列表：
 
 | Skill | 级别 | 用途 | 首次配置 |
 |-------|------|------|---------|
@@ -194,7 +220,7 @@ B: 跳过，仅当前工作空间可用
 | find-skills | 推荐 | 发现更多实用 Skill | 无 |
 | self-improving-agent | 推荐 | 自动记录错误并持续改进 | 无 |
 
-> **为什么列表比较短？** YouTube、B站、公众号、X 等平台的信息采集通过内置工具已能获得足够质量的结果，无需额外安装 Skill。详见 `references/拓展工具包.md`（已重命名为"拓展工具包"）。
+> **为什么列表比较短？** YouTube、B站、公众号、X 等平台的信息采集通过内置工具已能获得足够质量的结果，无需额外安装 Skill。详见 `references/Extended Toolkit拓展工具包.md`。
 
 **补充**：如需统一的多平台采集方案，可考虑安装Agent Reach（支持16+平台），但它与当前专精方案互为补充而非替代。
 

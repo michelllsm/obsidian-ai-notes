@@ -11,7 +11,7 @@ tags: [任务, {{tag}}]
 
 # {{title}}
 
-> Command: `-task` | 指令：`-任务`
+> Command: `-todo` | 指令：`-任务`
 
 ---
 
