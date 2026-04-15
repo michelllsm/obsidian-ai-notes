@@ -19,7 +19,7 @@
 
 | Platform / 平台           | Primary / 首选           | Alt / 备选          | Quality / 质量说明                                                     | AI 执行指引                                                                                                                                                                                                         |
 | ----------------------- | ---------------------- | ----------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 小红书 / Xiaohongshu       | xiaohongshu (MCP)      | web_fetch         | **首选**：搜索+详情+评论+互动数据，完整。**备选web_fetch**：仅公开文字，无图片/互动数据，**质量低，易失败** | **按 SKILL.md §2.7 小红书决策树执行**：MCP优先→带token用web_fetch→裸链不抓→提示登录。技术细节见《小红书数据抓取规则.md》 |
+| 小红书 / Xiaohongshu       | 小红书 MCP（Skill 或独立服务）| web_fetch（降级） | **MCP**：正文+图片+互动+评论（>95%）。**web_fetch**：仅文字（~50%） | **按 SKILL.md §2.7 决策树执行**。MCP 可用则用，否则降级+推荐安装 |
 | YouTube                 | web_fetch _(内置)_       | yt-dlp (需 cookie) | **首选**：标题+描述+章节+数据+链接，**零配置成功率高**。备选：需cookie认证                     | 1. **直接**调用 `web_fetch`（无需检查其他）\n2. 仅当需下载视频时用 `yt-dlp`\n3. 失败率<5%，基本可靠                                                                                                                                                                        |
 | B站 / Bilibili           | web_fetch _(内置)_       | yt-dlp (需 cookie) | **首选**：标题+描述+数据，**零配置成功率高**                                        | 同YouTube，直接 `web_fetch`                                                                                                                                                                                                         |
 | 抖音 / Douyin             | web_fetch _(内置)_       | —                 | **公开内容**可抓文字，**受限内容失败率高**                                          | 1. 直接 `web_fetch`\n2. 若返回空/验证页 → 放弃，提示"抖音需特殊方案"                                                                                                                                                                                               |
@@ -53,7 +53,7 @@
 | [obsidian](https://skills.sh/) | Required / 必安装 | Note automation / 笔记读写自动化 | — | skills.sh | 无 |
 | [Tasks](https://publish.obsidian.md/tasks/) | Recommended / 推荐 | Task checkbox & filter / 任务打勾+筛选+看板 | — | Obsidian 社区插件 | 开箱时引导安装 |
 | [Obsidian Web Clipper](https://obsidian.md/clipper) | Recommended / 推荐 | Web clipping to Obsidian / 网页裁剪到收件箱 | 通用网页 | Obsidian 官方浏览器插件 | 浏览器安装插件即可 |
-| [xiaohongshu](https://github.com/xpzouying/xiaohongshu-mcp) | Recommended / 推荐 | Xiaohongshu content / 小红书搜索+详情+互动数据 | 小红书 | GitHub | 需 `start-mcp.sh` 启动 + **扫码登录** |
+| [xiaohongshu MCP](https://github.com/xpzouying/xiaohongshu-mcp) | Recommended / 推荐 | 小红书搜索+详情+评论+互动（完整 >95%） | 小红书 | GitHub binary / 小红书 Skill | 下载二进制 + **扫码登录** |
 | [yt-dlp](https://github.com/yt-dlp/yt-dlp) | Optional / 可选 | Video download & subtitle / 视频下载+字幕提取 | YouTube/B站 | `brew install yt-dlp` | 需 `--cookies-from-browser` 认证 |
 
 > **为什么精简了？** 大量平台（YouTube、B 站、公众号、Twitter 等）的信息采集通过内置 `web_fetch` 已能获得足够质量的结果（标题+描述+章节+数据），无需额外安装 Skill。只有需要**搜索能力**（小红书）或**视频字幕提取**（yt-dlp）的场景才真正需要专属工具。
