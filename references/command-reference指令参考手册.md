@@ -3,11 +3,11 @@
 > 详细指令说明、执行流程、Prompt 示例
 > 
 > 本文档供 AI 执行时参考，也供用户了解每个指令的具体行为。
-> 核心规则见 [[obsidian-wiki-notes-skill配置/SKILL]]，本文档是其执行层展开。
+> 核心规则见 [[obsidian-wiki-notes-skill配置/SKILL.md]]，本文档是其执行层展开。
 
 ---
 
-> 指令速查表见 [[obsidian-wiki-notes-skill配置/SKILL]] §1，本文档不重复列出。
+> 指令速查表见 [[obsidian-wiki-notes-skill配置/SKILL.md]] §1，本文档不重复列出。
 
 ---
 
@@ -564,7 +564,7 @@ Karpathy 无固定模板，LLM 自由生成（灵活但不一致）。obsidian-w
 
 ## 10. Emoji 路径安全参考
 
-> 对应 [[obsidian-wiki-notes-skill配置/SKILL]] §2.5。本节提供具体代码示例和排错流程。
+> 对应 [[obsidian-wiki-notes-skill配置/SKILL.md]] §2.5。本节提供具体代码示例和排错流程。
 
 ### 问题根因
 
@@ -686,7 +686,7 @@ encoded = quote(path, safe="/")
 
 ## 附录C：执行自检清单与日志规范
 
-> 对应 [[obsidian-wiki-notes-skill配置/SKILL]] §2.2a/§2.2b。SKILL.md 保留精简版，本节为完整参考。
+> 对应 [[obsidian-wiki-notes-skill配置/SKILL.md]] §2.2a/§2.2b。SKILL.md 保留精简版，本节为完整参考。
 
 ### C.1 自检清单（笔记创建前必检）
 
