@@ -1,4 +1,4 @@
-	# 📝 Obsidian LLM Notes
+	# 📝 Obsidian wiki Notes
 
 > 通过自然语言指令驱动的 Obsidian AI 笔记工作流
 

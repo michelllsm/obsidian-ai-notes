@@ -1,8 +1,8 @@
-# 📝 Obsidian LLM Notes
+# 📝 Obsidian wiki Notes
 
 > AI-powered Obsidian workflow via natural language commands
 
-**Obsidian LLM Notes** is an AI Skill that lets you create, organize, and manage structured Obsidian notes through simple commands like `day`, `note`, `idea`.
+**Obsidian wiki Notes** is an AI Skill that lets you create, organize, and manage structured Obsidian notes through simple commands like `day`, `note`, `idea`.
 
 **Features:** Chinese-first, English-compatible, 10 core commands covering the full note lifecycle.
 
