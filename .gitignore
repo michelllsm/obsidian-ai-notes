@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# Temp
+tmp/
+temp/
+
+# User customizations (protected from upstream updates)
+obsidian-ai-notes skill配置/user/
+user-templates/
+custom-prompts/
+personal-rules.md
