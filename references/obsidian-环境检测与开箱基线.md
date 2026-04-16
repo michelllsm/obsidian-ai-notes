@@ -42,10 +42,9 @@ npm -v || echo "NPM_NOT_FOUND"
 2. **再检 CLI**
    - 若缺失且 npm 可用：`npm i -g obsidian-cli`
    - 若 npm 也缺失：降级为文件系统模式，告知用户。
-3. **最后确认 Vault 路径**
-   - 优先读 MEMORY.md 配置
-   - 其次检测当前工作空间是否含 `.obsidian/`
-   - 都没有则询问用户
+3. **最后确认 Vault 路径（Phase 2）**
+   - 检查当前工作空间是否含 `.obsidian/`（严格验证用户是否用 Obsidian 打开过库）
+   - 如果没有，拦截警告，避免创建到空文件夹中。
 4. **执行 smoke test**
    - 用最小命令验证 CLI 能读写 Vault。
 

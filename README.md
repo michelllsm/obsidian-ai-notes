@@ -1,6 +1,8 @@
 # 📝 Obsidian wiki Notes
 
 > AI-powered Obsidian workflow via natural language commands
+> 
+> **Version: 2.2.0** | Updated: 2026-04-16
 
 **Obsidian wiki Notes** is an AI Skill that lets you create, organize, and manage structured Obsidian notes through simple commands like `day`, `note`, `idea`.
 
@@ -105,7 +107,7 @@ Each command **reads its template before generating content**, ensuring consiste
 │   ├── skills-index.md               # tool 自动写入
 │   └── 🔧tools-index.md          # tool 自动写入
 ├── Clippings/                     # 收件箱（classify 扫描此处）
-└── "obsidian-wiki-notes-skill配置"/ # ⚠️ 含空格，是一个完整目录名
+└── "obsidian-wiki-notes-skill配置"/ # ⚠️ 完整目录名
     ├── SKILL.md                   # 核心执行规范
     ├── templates/                 # 笔记模板（可以自己改）
     │   ├── note-overview.md        # note 模板（外部内容摘要）

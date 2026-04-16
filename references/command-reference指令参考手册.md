@@ -482,35 +482,43 @@ AI：限定时间范围整理
 
 ### B. Skill 包一致性检查（漂移检测）
 
-> **核心目标**：检测"改了一处忘改其他地方"导致的引用断裂和内容漂移。
+> **核心目标**：检测"改了一处忘改其他地方"导致的术语、路径、引用不一致。
 
-检查范围：`obsidian-wiki-notes-skill配置/`
+检查范围：`obsidian-wiki-notes-skill配置/` 下所有文件（SKILL.md + README + README_CN + references/*）
 
 **检查清单（逐项执行，输出 ✅/❌）**：
 
 | # | 检查项 | 怎么验证 | 常见漂移场景 |
 |---|--------|---------|-------------|
-| 1 | **双链引用 → 文件存在** | 提取 SKILL.md 所有 `[[...]]` → 验证目标文件存在 | 改了文件名但引用没更新 |
-| 2 | **路径名漂移** | SKILL.md/README 里写的目录名 vs 磁盘实际目录名 | Skill 配置目录改名后文档里还是旧名 |
-| 3 | **指令表漂移** | SKILL.md §1 指令数量和名称 vs command-reference 指令数量和名称 | 新增指令只改了一处 |
-| 4 | **type-模板映射** | SKILL.md §2.1 的 type 值 → 对应模板文件存在于 templates/ | 改了模板文件名但 type 表没更新 |
-| 5 | **版本号一致** | SKILL.md frontmatter `version` vs README 里的版本号 | 升版只改了一处 |
-| 6 | **三处同步** | `diff` 笔记库配置 vs Documents 源目录 vs skills 软链接 | 改了笔记库但忘了同步 |
+| 1 | **双链引用 → 文件存在** | 提取所有文件中的 `[[...]]` → 验证目标文件在磁盘上存在 | 改了文件名但引用没更新 |
+| 2 | **指令词一致** | 提取 SKILL.md §1 的指令名+别名列表 → 与 command-reference 的指令名+别名交叉比对 → 与 README/README_CN 的指令表交叉比对 | 新增/改名指令只改了一个文件 |
+| 3 | **文件夹名一致** | 提取 SKILL.md §3 骨架定义的目录名 → 与 onboarding-phases 里的目录名比对 → 与 README 里的目录名比对 | 文件夹改名后某个文档还是旧名 |
+| 4 | **type-模板映射** | SKILL.md §2.1 定义的 type 值 → 对应模板文件存在于 templates/ | 改了模板文件名但 type 表没更新 |
+| 5 | **术语统一** | 全文搜索关键术语是否一致：Skill 配置目录名、平台名称、路由优先级描述 | 改名后旧名称残留（如 `obsidian-ai-notes` → `obsidian-wiki-notes`） |
+| 6 | **版本号+更新时间** | SKILL.md frontmatter `version` vs README/README_CN 的版本号和更新时间 | 升版只改了一处 |
+
+**执行方法**：
+- #1：`grep -r '\[\[' *.md` 提取所有双链，逐个验证
+- #2：分别提取三处指令列表，`diff` 比对数量和名称
+- #3：分别提取骨架目录名列表，`diff` 比对
+- #4：type 表 → `ls templates/` 交叉验证
+- #5：`grep -rn '旧术语'` 搜索残留
 
 **输出格式**：
 ```
 ## 🔍 Skill 包一致性检查 | YYYY-MM-DD
 
-1. 双链引用    ✅ 5/5 有效
-2. 路径名      ✅ 无漂移
-3. 指令表      ❌ SKILL.md 有 10 个指令，command-reference 只有 9 个（缺 -classify）
+1. 双链引用    ✅ 12/12 有效
+2. 指令词      ❌ SKILL.md 有 10 个指令，command-reference 有 9 个（缺 -classify）
+3. 文件夹名    ❌ onboarding 里还写着 "obsidian-ai-notes skill配置"（已改名）
 4. type-模板   ✅ 8/8 匹配
-5. 版本号      ❌ SKILL.md=2.3.0，README=2.2.0
-6. 三处同步    ✅ 完全一致
+5. 术语残留    ❌ 发现 2 处旧名称 "obsidian-LLM-notes"
+6. 版本号      ✅ SKILL.md=2.2.0，README=2.2.0，README_CN=2.2.0
 
 ### ⚠️ 需修复
 - [ ] command-reference 补充 -classify 指令说明
-- [ ] README 版本号更新为 2.3.0
+- [ ] onboarding 第 115 行目录名更新
+- [ ] Extended Toolkit 第 3 行旧术语替换
 ```
 
 ### Prompt 示例
