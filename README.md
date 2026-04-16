@@ -105,7 +105,7 @@ Each command **reads its template before generating content**, ensuring consiste
 │   ├── skills-index.md               # tool 自动写入
 │   └── 🔧tools-index.md          # tool 自动写入
 ├── Clippings/                     # 收件箱（classify 扫描此处）
-└── "obsidian-wiki-notes skill配置"/ # ⚠️ 含空格，是一个完整目录名
+└── "obsidian-wiki-notes-skill配置"/ # ⚠️ 含空格，是一个完整目录名
     ├── SKILL.md                   # 核心执行规范
     ├── templates/                 # 笔记模板（可以自己改）
     │   ├── note-overview.md        # note 模板（外部内容摘要）
@@ -147,7 +147,7 @@ Your customizations are **always protected** — AI merges updates intelligently
 
 ### How to Customize
 
-Edit any file in `obsidian-wiki-notes skill配置/` directly, or tell your AI:
+Edit any file in `obsidian-wiki-notes-skill配置/` directly, or tell your AI:
 
 ```
 Help me modify the daily note template to add a "mood" field

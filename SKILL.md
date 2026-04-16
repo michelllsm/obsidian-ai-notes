@@ -31,7 +31,7 @@ author: smingliang
 
 ```
 执行优先级：
-1. <vault>/obsidian-wiki-notes skill配置/SKILL.md（用户自定义）← 最高
+1. <vault>/obsidian-wiki-notes-skill配置/SKILL.md（用户自定义）← 最高
 2. 官方 Skill 文件（系统内置）
 ```
 
@@ -304,7 +304,7 @@ Step 3: 全部失败
 | 4 | 全局记忆 | 写入 MEMORY.md；试跑首条指令 |
 | 5 | 扩展推荐 | 推荐并安装扩展 Skill/工具 |
 
-> ⚠️ `obsidian-wiki-notes skill配置` 是含空格的完整目录名，创建时必须引号包裹。
+> ⚠️ `obsidian-wiki-notes-skill配置` 是含空格的完整目录名，创建时必须引号包裹。
 
 ---
 
